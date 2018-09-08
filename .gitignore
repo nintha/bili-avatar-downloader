@@ -3,6 +3,7 @@
 /build/
 /log/
 /storage/
+readerMark
 .gradle
 !.mvn/wrapper/maven-wrapper.jar
 

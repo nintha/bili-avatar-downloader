@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+}
+
+group 'com.github.nintha'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.8.0-beta2'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.11.0'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+jar {
+    manifest.attributes 'Main-Class': 'com.github.nintha.LauncherKt'
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

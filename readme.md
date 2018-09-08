@@ -1,14 +1,76 @@
 # bili-avatar-downloader
 
+中文简介在英文简介下方
+
+A tool to download bilibili user's avatar images
+
+You can edit properties file`/src/main/resource/avatar.properties` to change config
+
+```
+# input file path, using csv format without header-line, only one column
+avatar.input.file-path=./faces.csv
+# the download path, every 3000 images save into a zip file
+avatar.storage.dir=./storage
+# record download process, file save in path ./
+avatar.reader-mark.name=readerMark
+# image size, 16 means height=16px and width=16px, optional values：16、24、32、64、72
+avatar.image.size=16
+```
+
+### build
+
+```bash
+cd bili-avatar-downloader
+./gradlew build -x test
+```
+
+The jar file will be created in `build/lib/`
+
+### run
+
+```bash
+cd build/lib
+java -jar bili-avatar-0.0.1.jar
+```
+
+
+
+
+
+
+
+# 中文简介
+
 b站用户头像爬取
 
+相关配置修改见`/src/main/resource/avatar.properties`配置文件
+
+```properties
+# 输入数据源，csv格式, 没有headerLine，\n作为换行符，仅一列数据
+avatar.input.file-path=./faces.csv
+# 下载图片的存储路径, 每3000个图片放入一个压缩包.
+avatar.storage.dir=./storage
+# 下载进度记录文件名，文件位置在 ./
+avatar.reader-mark.name=readerMark
+# 下载的图片大小，16代表高宽均为16px，可用值：16、24、32、64、72
+avatar.image.size=16
+```
+
+### 构建
+
+```bash
+cd bili-avatar-downloader
+./gradlew build -x test
+```
+
+生成的jar文件在`build/lib/`目录下
+
+### 运行
+
+```bash
+cd build/lib
+java -jar bili-avatar-0.0.1.jar
+```
 
 
-数据源为项目根目录下的faces.csv文件，格式为每行一个头像url后缀类似`f7aba29c6c88fa00ff035adce7edcce5cf7c493a.jpg`，并用`\n`作为换行符
-
-数据结果会存入storage文件夹，每3000个图片放入一个压缩包.
-
-### 断点续传
-
-运行时会在项目目录下创建readerMark文件，用于记录下载进度
 

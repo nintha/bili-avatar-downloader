@@ -127,7 +127,7 @@ class HttpSender {
             return ""
         }
 
-        fun download(url: String, fileName: String): ByteArray {
+        fun download(url: String): ByteArray {
             val client: OkHttpClient = commonClient
             val req = Request.Builder().url(url)
                     .removeHeader("User-Agent")
@@ -137,20 +137,6 @@ class HttpSender {
                 client.newCall(req).execute().use { res ->
                     val inputStream = res.body()?.byteStream() ?: return@use
                     val bytes = inputStream.use { it.readBytes() }
-//                    inputStream.use {inputStream->
-//                        val folder = Paths.get("./storage/${Math.abs(fileName.hashCode()) % 1024}")
-//                        if(!Files.exists(folder)) Files.createDirectories(folder)
-//                        val path = folder.resolve(fileName)
-//                        if(!Files.exists(path)) Files.createFile(path)
-//                        Files.newOutputStream(path).use { out ->
-//                            while (true) {
-//                                val i = inputStream.read()
-//                                if (i == -1) break
-//                                out.write(i)
-//                            }
-//                            out.close()
-//                        }
-//                    }
                     return bytes
                 }
             } catch (e : SocketTimeoutException){

@@ -17,6 +17,10 @@ avatar.reader-mark.name=readerMark
 avatar.image.size=16
 ```
 
+### dependencies
+
+- java 1.8
+
 ### build
 
 ```bash
@@ -55,6 +59,10 @@ avatar.reader-mark.name=readerMark
 # 下载的图片大小，16代表高宽均为16px，可用值：16、24、32、64、72
 avatar.image.size=16
 ```
+
+### 依赖
+
+- java 1.8 
 
 ### 构建
 

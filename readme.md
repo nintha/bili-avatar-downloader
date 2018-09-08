@@ -6,7 +6,7 @@ A tool to download bilibili user's avatar images
 
 You can edit properties file`/src/main/resource/avatar.properties` to change config
 
-```
+```properties
 # input file path, using csv format without header-line, only one column
 avatar.input.file-path=./faces.csv
 # the download path, every 3000 images save into a zip file
